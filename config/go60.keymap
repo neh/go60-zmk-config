@@ -222,10 +222,9 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
 #define VOLU &kp C_VOL_UP
 #define VOLD &kp C_VOL_DN
 
-#define NAVRET &ht_lt NAV ENTER
-#define NUMESC &ht_lt NUM ESC
-#define FUNBSP &rt_lt FUN BSPC
-#define NUMSPC &rt_lt NUM SPACE
+#define NAVRET &ht_lt layer_Nav ENTER
+#define NUMESC &ht_lt layer_Num ESC
+#define NUMSPC &rt_lt layer_Num SPACE
 
 / {
     input_processors {
