@@ -246,20 +246,6 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
             bindings = <&mo>, <&rgb_ug_status_macro>;
         };
 
-        keypad_td: keypad_td {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo LAYER_Keypad>, <&to LAYER_Keypad>;
-        };
-
-        symbol_nav_td: symbol_nav_td {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo LAYER_SymbolNav>, <&to LAYER_SymbolNav>;
-        };
-
         bt_0: bt_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
