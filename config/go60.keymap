@@ -212,6 +212,8 @@ HOME_ROW_MOD_RH(rh_hr_mt, &kp)  /* Right hand */
 HOME_THUMB_LAYER_TAP(ht_lt, &kp)  /* Used for Editing and Numbers layers */
 REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
 
+};
+
 #define HRML(k1,k2,k3,k4) &lh_hr_mt LSHFT k1 &lh_hr_mt LALT k2 &lh_hr_mt LCTRL k3 &lh_hr_mt LGUI k4
 #define HRMR(k1,k2,k3,k4) &rh_hr_mt LGUI k1 &rh_hr_mt LCTRL k2 &rh_hr_mt LALT k3 &rh_hr_mt LSHFT k4
 
