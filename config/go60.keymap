@@ -17,12 +17,213 @@
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
+/* Key positions */
+
+#define POS_LH_C6R1 0
+#define POS_LH_C5R1 1
+#define POS_LH_C4R1 2
+#define POS_LH_C3R1 3
+#define POS_LH_C2R1 4
+#define POS_LH_C1R1 5
+#define POS_RH_C1R1 6
+#define POS_RH_C2R1 7
+#define POS_RH_C3R1 8
+#define POS_RH_C4R1 9
+#define POS_RH_C5R1 10
+#define POS_RH_C6R1 11
+#define POS_LH_C6R2 12
+#define POS_LH_C5R2 13
+#define POS_LH_C4R2 14
+#define POS_LH_C3R2 15
+#define POS_LH_C2R2 16
+#define POS_LH_C1R2 17
+#define POS_RH_C1R2 18
+#define POS_RH_C2R2 19
+#define POS_RH_C3R2 20
+#define POS_RH_C4R2 21
+#define POS_RH_C5R2 22
+#define POS_RH_C6R2 23
+#define POS_LH_C6R3 24
+#define POS_LH_C5R3 25
+#define POS_LH_C4R3 26
+#define POS_LH_C3R3 27
+#define POS_LH_C2R3 28
+#define POS_LH_C1R3 29
+#define POS_RH_C1R3 30
+#define POS_RH_C2R3 31
+#define POS_RH_C3R3 32
+#define POS_RH_C4R3 33
+#define POS_RH_C5R3 34
+#define POS_RH_C6R3 35
+#define POS_LH_C6R4 36
+#define POS_LH_C5R4 37
+#define POS_LH_C4R4 38
+#define POS_LH_C3R4 39
+#define POS_LH_C2R4 40
+#define POS_LH_C1R4 41
+#define POS_RH_C1R4 42
+#define POS_RH_C2R4 43
+#define POS_RH_C3R4 44
+#define POS_RH_C4R4 45
+#define POS_RH_C5R4 46
+#define POS_RH_C6R4 47
+#define POS_LH_C4R5 48
+#define POS_LH_C3R5 49
+#define POS_LH_C2R5 50
+#define POS_RH_C2R5 51
+#define POS_RH_C3R5 52
+#define POS_RH_C4R5 53
+#define POS_LH_T1 54
+#define POS_LH_T2 55
+#define POS_LH_T3 56
+#define POS_RH_T3 57
+#define POS_RH_T2 58
+#define POS_RH_T1 59
+
+
+#define LEFT_HAND_KEYS \
+  POS_LH_C1R1 POS_LH_C2R1 POS_LH_C3R1 POS_LH_C4R1 POS_LH_C5R1 POS_LH_C6R1 \
+  POS_LH_C1R2 POS_LH_C2R2 POS_LH_C3R2 POS_LH_C4R2 POS_LH_C5R2 POS_LH_C6R2 \
+  POS_LH_C1R3 POS_LH_C2R3 POS_LH_C3R3 POS_LH_C4R3 POS_LH_C5R3 POS_LH_C6R3 \
+  POS_LH_C1R4 POS_LH_C2R4 POS_LH_C3R4 POS_LH_C4R4 POS_LH_C5R4 POS_LH_C6R4 \
+              POS_LH_C2R5 POS_LH_C3R5 POS_LH_C4R5
+
+#define RIGHT_HAND_KEYS \
+  POS_RH_C1R1 POS_RH_C2R1 POS_RH_C3R1 POS_RH_C4R1 POS_RH_C5R1 POS_RH_C6R1 \
+  POS_RH_C1R2 POS_RH_C2R2 POS_RH_C3R2 POS_RH_C4R2 POS_RH_C5R2 POS_RH_C6R2 \
+  POS_RH_C1R3 POS_RH_C2R3 POS_RH_C3R3 POS_RH_C4R3 POS_RH_C5R3 POS_RH_C6R3 \
+  POS_RH_C1R4 POS_RH_C2R4 POS_RH_C3R4 POS_RH_C4R4 POS_RH_C5R4 POS_RH_C6R4 \
+              POS_RH_C2R5 POS_RH_C3R5 POS_RH_C4R5
+
+#define THUMB_KEYS \
+  POS_LH_T1 POS_LH_T2 POS_LH_T3 \
+  POS_RH_T1 POS_RH_T2 POS_RH_T3
+
+
 // layers
 #define LAYER_Base 0
-#define LAYER_Keypad 1
-#define LAYER_SymbolNav 2
-#define LAYER_Magic 3
-#define LAYER_Factory 4
+#define LAYER_NoHRM 1
+#define LAYER_Num 2
+#define LAYER_Nav 3
+#define LAYER_Magic 4
+#define LAYER_Factory 5
+
+
+/* Custom Defined Behaviors */
+/ {
+    /* How long Sticky Keys and Sticky Layers stay pressed */
+#define STICKY_KEY_RELEASE_AFTER_MS 600
+
+/* How quickly Combo keys must be pressed together */
+#define COMBO_TIMEOUT_MS 45
+
+/* How quickly both thumb Shift keys must be pressed together to activate Caps
+   Word */
+#define CAPS_WORD_COMBO_TIMEOUT_MS 150
+
+/* How long to hold to activate home row mods for same side or mouse usage */
+#define HOME_ROW_MODS_TAPPING_TERM_MS 300
+
+/* Cool down after typing before home row mods can be used */
+#define HOME_ROW_MODS_QUICK_TAP_MS 250
+
+/* How long thumb keys can be held before rolls send the higher layer key */
+#define THUMBS_TAPPING_TERM_MS 200
+
+/* How quickly to double tap reaching thumb keys to hold down the tap action */
+#define REACH_THUMBS_QUICK_TAP_MS 250
+
+/* How long until each phase of the typing assist features times out */
+#define TYPING_ASSIST_TIMEOUT_MS 60000
+
+/* How long to hold for Autoshift */
+#define AUTOSHIFT_TAPPING_TERM_MS 200
+
+/* How long until the word and line selection feature times out */
+#define SELECT_TIMEOUT_MS 60000
+
+/* How quickly confirmation action keys must be double tapped to activate */
+#define DOUBLE_TAP_TIMEOUT_MS 250
+
+
+/* Convert NAME parameters into a ZMK label string */
+#define STRINGIFY(x) #x
+
+/* Create a ZMK Behavior without having to specify the name three times */
+#define ZMK_BEHAVIOR(NAME, ...) \
+    behaviors { \
+        NAME: NAME { \
+            label = STRINGIFY(ZB_ ## NAME); \
+            __VA_ARGS__ \
+        }; \
+    };
+
+/* Hold-Tap helper */
+#define HOLD_TAP(NAME, ...) \
+    ZMK_BEHAVIOR(NAME, \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        __VA_ARGS__ \
+    )
+
+/* Balanced Hold-Tap for home row mods and thumb layer keys */
+#define BALANCED_HOLD_TAP(NAME, ...) \
+    HOLD_TAP(NAME, \
+        flavor = "balanced";  /* Fast hold */ \
+        __VA_ARGS__ \
+    )
+
+/* "Timerless" home row mod Hold-Tap using defined timers */
+#define HOME_ROW_MOD_HELPER(NAME, KEY_POSITIONS, TAP) \
+    BALANCED_HOLD_TAP(NAME, \
+        tapping-term-ms = <HOME_ROW_MODS_TAPPING_TERM_MS>;  /* Mouse usage */ \
+        quick-tap-ms = <HOME_ROW_MODS_QUICK_TAP_MS>;  /* Typing cool down */ \
+        require-prior-idle-ms = <150>; \
+        hold-trigger-key-positions = <KEY_POSITIONS>;  /* Use other hand */ \
+        hold-trigger-on-release; \
+        bindings = <&kp>, <TAP>; \
+    )
+
+/* Left and right hand home row mods */
+#define HOME_ROW_MOD_LH(NAME, TAP) \
+    HOME_ROW_MOD_HELPER(NAME, RIGHT_HAND_KEYS THUMB_KEYS, TAP)
+#define HOME_ROW_MOD_RH(NAME, TAP) \
+    HOME_ROW_MOD_HELPER(NAME, LEFT_HAND_KEYS THUMB_KEYS, TAP)
+
+HOME_ROW_MOD_LH(lh_hr_mt, &kp)  /* Left hand */
+HOME_ROW_MOD_RH(rh_hr_mt, &kp)  /* Right hand */
+
+
+/* Home thumb layer tap without quick tap; faster layer switching */
+#define HOME_THUMB_LAYER_TAP(NAME, TAP_BINDING) \
+    BALANCED_HOLD_TAP(NAME, \
+        tapping-term-ms = <THUMBS_TAPPING_TERM_MS>;  /* Rolls send tap key */ \
+        bindings = <&mo>, <TAP_BINDING>; \
+    )
+
+/* Reaching thumb layer tap with double tap to repeat */
+#define REACH_THUMB_LAYER_TAP(NAME, TAP_BINDING) \
+    BALANCED_HOLD_TAP(NAME, \
+        tapping-term-ms = <THUMBS_TAPPING_TERM_MS>;  /* Rolls send tap key */ \
+        quick-tap-ms = <REACH_THUMBS_QUICK_TAP_MS>;  /* Double tap repeats */ \
+        bindings = <&mo>, <TAP_BINDING>; \
+    )
+
+HOME_THUMB_LAYER_TAP(ht_lt, &kp)  /* Used for Editing and Numbers layers */
+REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
+
+#define HRML(k1,k2,k3,k4) &lh_hr_mt LSHFT k1 &lh_hr_mt LALT k2 &lh_hr_mt LCTRL k3 &lh_hr_mt LGUI k4
+#define HRMR(k1,k2,k3,k4) &rh_hr_mt LGUI k1 &rh_hr_mt LCTRL k2 &rh_hr_mt LALT k3 &rh_hr_mt LSHFT k4
+
+#define PTAB &kp LC(LS(TAB))
+#define NTAB &kp LC(TAB)
+#define VOLU &kp C_VOL_UP
+#define VOLD &kp C_VOL_DN
+
+#define NAVRET &ht_lt NAV ENTER
+#define NUMESC &ht_lt NUM ESC
+#define FUNBSP &rt_lt FUN BSPC
+#define NUMSPC &rt_lt NUM SPACE
 
 / {
     input_processors {
@@ -124,34 +325,45 @@
         compatible = "zmk,keymap";
         layer_Base {
             bindings = <
-            &kp EQUAL  &kp N1     &kp N2   &kp N3    &kp N4  &kp N5                                                      &kp N6    &kp N7     &kp N8    &kp N9    &kp N0           &kp MINUS
-              &kp TAB   &kp Q      &kp W    &kp E     &kp R   &kp T                                                       &kp Y     &kp U      &kp I     &kp O     &kp P            &kp BSLH
-              &kp ESC   &kp A      &kp S    &kp D     &kp F   &kp G                                                       &kp H     &kp J      &kp K     &kp L  &kp SEMI             &kp SQT
- &magic LAYER_Magic 0   &kp Z      &kp X    &kp C     &kp V   &kp B                                                       &kp N     &kp M  &kp COMMA   &kp DOT  &kp FSLH          &keypad_td
-                               &kp GRAVE  &kp DEL  &kp BSPC                                                                      &kp LGUI   &kp LBKT  &kp RBKT
-                                                     &symbol_nav_td  &kp LSHFT  &kp LCTRL     &kp LALT  &kp SPACE  &mt RALT RET
+            &kp GRAVE   &kp N1     &kp N2  &kp N3    &kp N4  &kp N5                                                      &kp N6    &kp N7     &kp N8    &kp N9    &kp N0       &none
+              &kp TAB   &kp SQT    &kp X   &kp COMMA &kp DOT &kp EQUAL                                                   &kp BSLH  &kp L      &kp D     &kp W     &kp V        &kp SLASH
+              &kp Q     &kp C      &kp I   &kp E     &kp A   &kp MINUS                                                   &kp K     &kp H      &kp T     &kp N     &kp S        &kp Z
+ &magic LAYER_Magic 0   HRML(B,    Y,      U,        O)      &kp SEMI                                                    &kp J     HRMR(M,    G,        P,        F)           &none
+                               &kp LPAR    &kp RPAR  &sk LCTL                                                                      &sk LALT   &kp LBKT  &kp RBKT
+                                                             NAVRET  &sk LSHFT  NUMESC              &kp BSPC  &kp SPACE  &kp R
             >;
         };
 
-        layer_Keypad {
+        layer_NoHRM {
             bindings = <
-                &none     &kp F1     &kp F2     &kp F3     &kp F4         &kp F5                                                 &kp F6     &kp F7      &kp F8        &kp F9          &kp F10        &kp F11
-               &trans      &none   &kp HOME     &kp UP    &kp END      &kp PG_UP                                              &kp KP_N7  &kp KP_N8   &kp KP_N9  &kp KP_MINUS     &kp KP_SLASH        &kp F12
-               &trans  &kp LC(Y)   &kp LEFT   &kp DOWN  &kp RIGHT      &kp PG_DN                                              &kp KP_N4  &kp KP_N5   &kp KP_N6   &kp KP_PLUS  &kp KP_MULTIPLY     &kp KP_NUM
- &magic LAYER_Magic 0  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LS(LC(V))                                              &kp KP_N1  &kp KP_N2   &kp KP_N3  &kp KP_ENTER        &kp EQUAL &to LAYER_Base
-                                      &none     &trans     &trans                                                                        &kp KP_N0  &kp KP_DOT      &kp BSPC
-                                                             &mo LAYER_SymbolNav  &trans  &trans              &trans  &trans  &kp KP_N0
+               &trans  &trans  &trans  &trans  &trans  &trans                                                           &trans  &trans  &trans  &trans  &trans  &none
+               &trans  &trans  &trans  &trans  &trans  &trans                                                           &trans  &trans  &trans  &trans  &trans  &trans
+               &trans  &trans  &trans  &trans  &trans  &trans                                                           &trans  &trans  &trans  &trans  &trans  &trans
+ &magic LAYER_Magic 0  &kp B   &kp Y   &kp U   &kp O   &trans                                                           &trans  &kp M   &kp G   &kp P   &kp F   &none
+                               &trans  &trans  &trans                                                                           &trans  &trans  &trans
+                                                       &trans  &trans  &trans                           &trans  &trans  &trans
             >;
         };
 
-        layer_SymbolNav {
+        layer_Num {
             bindings = <
-              &kp INS    &kp F1     &kp F2    &kp F3     &kp F4     &kp F5                                       &kp F6    &kp F7           &kp F8       &kp F9          &kp F10    &kp F11
-             &kp SLCK  &kp EXCL   &kp HOME    &kp UP    &kp END  &kp PG_UP                                     &kp LPAR  &kp RPAR           &kp UP    &kp PRCNT        &kp K_APP    &kp F12
-             &kp CAPS    &kp AT   &kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_DN                                     &kp DLLR  &kp LEFT         &kp DOWN    &kp RIGHT  &kp PAUSE_BREAK  &kp PSCRN
- &magic LAYER_Magic 0  &kp HASH   &kp LBKT  &kp RBKT   &kp LBRC   &kp RBRC                                     &kp AMPS  &kp STAR        &kp UNDER     &kp PLUS        &kp LSHFT  &kp LCTRL
-                                 &kp CARET    &trans     &trans                                                            &trans  &kp LC(LS(TAB))  &kp LC(TAB)
-                                                            &to LAYER_Base  &trans  &trans       &trans  &trans  &trans
+                &none     &trans     &trans     &trans     &tran        &trans                                              &trans     &trans     &trans     &trans         &trans      &trans
+               &trans &kp PERCENT    &kp CARET  &kp N0     &kp N9       &kp AMPS                                            &none      &none      &none      &none          &none       &none
+               &none      &kp N4     &kp N3     &kp N2     &kp N1       &kp N0                                              &none      &none      &none      &none          &none       &none
+ &magic LAYER_Magic 0     &kp N8     &kp N7     &kp N6     &kp N5       &kp N9                                              &none      &kp LGUI   &kp LCTL   &kp LALT       &kp LSFT    &none
+                                      &none     &trans     &trans                                                                      &trans     &trans     &trans
+                                                                        &trans  &trans  &trans              &trans  &trans  &trans
+            >;
+        };
+
+        layer_Nav {
+            bindings = <
+               &none        &kp F1    &kp F2     &kp F3    &kp F4      &kp F5                                                 &kp F6     &kp F7     &kp F8     &kp F9         &kp F10     &kp F11
+               &trans        &none    VOLU       VOLD      &kp END     &kp PG_UP                                              &none      PTAB       &none      &none          NTAB        &kp F12
+               &trans    &kp LC(Y)    &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN                                              &none      &kp LEFT   &kp UP     &kp DOWN       &kp RIGHT   &none
+ &magic LAYER_Magic 0 HRML(C_PREV,    C_MUTE,    C_PP,     C_NEXT)     &none                                                  &none      &kp HOME   &kp PG_UP  &kp PG_DN      &kp END     &none
+                                      &trans     &trans    &trans                                                                        &trans     &trans     &trans
+                                                                       &trans  &trans  &trans              &trans  &to layer_Base  &to layer_NoHRM
             >;
         };
 
