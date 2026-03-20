@@ -346,9 +346,9 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
         layer_Nav {
             bindings = <
                &none        &kp F1    &kp F2     &kp F3    &kp F4      &kp F5                                                 &kp F6     &kp F7     &kp F8     &kp F9         &kp F10     &kp F11
-               &trans        &none    VOL_U      VOL_D     &kp END     &kp PG_UP                                              &none      PTAB       &none      &none          NTAB        &kp F12
+               &trans        &none    VOL_U      VOL_D     &kp END     &kp PG_UP                                              &none      PTAB       PTAB       NTAB           NTAB        &kp F12
                &trans    &kp LC(Y)    &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN                                              &none      &kp LEFT   &kp UP     &kp DOWN       &kp RIGHT   &none
- &magic LAYER_Magic 0 HRML(C_PREV,    C_MUTE,    C_PP,     C_NEXT)     &none                                                  &none      &kp HOME   &kp PG_UP  &kp PG_DN      &kp END     &none
+ &magic LAYER_Magic 0 HRML(C_PREV,    C_MUTE,    C_PP,     C_NEXT)     &none                                                  &kp X      &kp HOME   &kp PG_UP  &kp PG_DN      &kp END     &none
                                       &trans     &trans    &trans                                                                        &trans     &trans     &trans
                                                                        &trans  &trans  &trans              &trans  &to LAYER_Base  &to LAYER_NoHRM
             >;
