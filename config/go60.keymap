@@ -225,6 +225,7 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
 #define NAVRET &ht_lt LAYER_Nav ENTER
 #define NUMESC &ht_lt LAYER_Num ESC
 #define NUMSPC &rt_lt LAYER_Num SPACE
+#define NAVR &rt_lt LAYER_Nav R
 
 / {
     input_processors {
@@ -317,7 +318,7 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
               &kp Q     &kp C      &kp I   &kp E     &kp A   &kp MINUS                                                   &kp K     &kp H      &kp T     &kp N     &kp S        &kp Z
  &magic LAYER_Magic 0   HRML(B,    Y,      U,        O)      &kp SEMI                                                    &kp J     HRMR(M,    G,        P,        F)           &none
                                &kp LPAR    &kp RPAR  &sk LCTL                                                                      &sk LALT   &kp LBKT  &kp RBKT
-                                                             NAVRET  &sk LSHFT  NUMESC              &kp BSPC  &kp SPACE  &kp R
+                                                             NAVRET  &sk LSHFT  NUMESC              &kp BSPC  &kp SPACE  NAVR
             >;
         };
 
