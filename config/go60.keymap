@@ -314,7 +314,7 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
         layer_Base {
             bindings = <
             &kp GRAVE   &kp N1     &kp N2  &kp N3    &kp N4  &kp N5                                                      &kp N6    &kp N7     &kp N8    &kp N9    &kp N0       &none
-              &kp TAB   &kp SQT    &kp X   &kp COMMA &kp DOT &kp EQUAL                                                   &kp BSLH  &kp L      &kp D     &kp W     &kp V        &kp SLASH
+              &kp TAB   &kp SQT    &kp X   &kp COMMA &kp DOT &kp EQUAL                                                   &kp FSLH  &kp L      &kp D     &kp W     &kp V        &kp BSLH
               &kp Q     &kp C      &kp I   &kp E     &kp A   &kp MINUS                                                   &kp K     &kp H      &kp T     &kp N     &kp S        &kp Z
  &magic LAYER_Magic 0   HRML(B,    Y,      U,        O)      &kp SEMI                                                    &kp J     HRMR(M,    G,        P,        F)           &none
                                &kp LPAR    &kp RPAR  &sk LCTL                                                                      &sk LALT   &kp LBKT  &kp RBKT
