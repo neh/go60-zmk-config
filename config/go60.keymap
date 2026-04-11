@@ -271,6 +271,21 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
             bindings = <&kp STAR>;
         };
 
+        combo_tab {
+            key-positions = <POS_RH_C2R3 POS_RH_C2R4>;
+            bindings = <&kp TAB>;
+        };
+
+        combo_grave {
+            key-positions = <POS_RH_C4R1 POS_RH_C4R2>;
+            bindings = <&kp GRAVE>;
+        };
+
+        combo_tilde {
+            key-positions = <POS_RH_C5R1 POS_RH_C5R2>;
+            bindings = <&kp TILDE>;
+        };
+
         /*
         combo_ {
             key-positions = <POS_RH_C4R1 POS_RH_C4R2>;
