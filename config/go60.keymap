@@ -227,6 +227,9 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
 #define NUMSPC &rt_lt LAYER_Num SPACE
 #define NAVR &rt_lt LAYER_Nav R
 
+#define CLBRC &rh_hr_mt LCTL LBRC
+#define ARBRC &rh_hr_mt LALT RBRC
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -419,9 +422,9 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
         layer_Num {
             bindings = <
                 &none     &trans     &trans     &trans     &trans       &trans                                              &trans     &trans     &trans     &trans         &trans      &trans
-               &trans   &kp EXCL     &kp AT     &trans     &trans       &kp PRCNT                                           &none      &none      &none      &none          &none       &none
-               &none      &kp N4     &kp N3     &kp N2     &kp N1       &kp N5                                              &none      &none      &none      &none          &none       &none
- &magic LAYER_Magic 0     &kp N9     &kp N8     &kp N0     &kp N7       &kp N6                                              &none      &kp LGUI   &kp LCTL   &kp LALT       &kp LSFT    &none
+               &trans   &kp EXCL     &kp AT     &trans     &trans       &kp PRCNT                                           &kp CARET  &kp AMPS   &kp STAR   &kp HASH       &none       &none
+               &none      &kp N4     &kp N3     &kp N2     &kp N1       &kp N5                                              &kp DLLR   &kp LPAR   &kp LBKT   &kp RBKT       &kp RPAR    &none
+ &magic LAYER_Magic 0     &kp N9     &kp N8     &kp N0     &kp N7       &kp N6                                              &none      &kp LGUI   CLBRC      ARBRC          &kp LSFT    &none
                                       &none     &trans     &trans                                                                      &trans     &trans     &trans
                                                                         &trans  &trans  &trans              &trans  &trans  &trans
             >;
