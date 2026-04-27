@@ -225,6 +225,7 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
 #define NAVRET &ht_lt LAYER_Nav ENTER
 #define NUMESC &ht_lt LAYER_Num ESC
 #define NUMSPC &rt_lt LAYER_Num SPACE
+#define NUMBSP &rt_lt LAYER_Num BSPC
 #define NAVR &rt_lt LAYER_Nav R
 
 #define CLBRC &rh_hr_mt LCTL LBRC
@@ -406,7 +407,7 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
               &kp Q     &kp C      &kp I   &kp E     &kp A   &kp MINUS                                                   &kp K     &kp H      &kp T     &kp N     &kp S        &kp Z
  &magic LAYER_Magic 0   HRML(B,    Y,      U,        O)      &kp SEMI                                                    &kp J     HRMR(M,    G,        P,        F)           &none
                                &kp LPAR    &kp RPAR  &sk LCTL                                                                      &sk LALT   &kp LBKT  &kp RBKT
-                                                             NAVRET  &sk LSHFT  NUMESC              &kp BSPC  &kp SPACE  NAVR
+                                                             NAVRET  &sk LSHFT  NUMESC              NUMBSP  &kp SPACE  NAVR
             >;
         };
 
@@ -439,7 +440,7 @@ REACH_THUMB_LAYER_TAP(rt_lt, &kp)  /* Used for Media and Function layers */
                &trans    &kp LC(Y)    &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN                                              &none      &kp LEFT   &kp UP     &kp DOWN       &kp RIGHT   &none
  &magic LAYER_Magic 0 HRML(C_PREV,    C_MUTE,    C_PP,     C_NEXT)     &none                                                  &kp X      &kp HOME   &kp PG_UP  &kp PG_DN      &kp END     &none
                                       &trans     &trans    &trans                                                                        &trans     &trans     &trans
-                                                                       &trans  &trans  &trans              &trans  &to LAYER_Base  &to LAYER_NoHRM
+                                                                       &trans  &trans  &trans              &kp BSPC  &to LAYER_Base  &to LAYER_NoHRM
             >;
         };
 
